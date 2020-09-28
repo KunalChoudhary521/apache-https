@@ -33,3 +33,10 @@ Lastly I add this little command so you can see which image you have in our setu
 sudo docker images
 sudo docker system prune -a
 ```
+
+Since ASPNETCORE expects certificate in .pfx format, run the following command and type a password: 
+```
+openssl pkcs12 -export -out aspnetapp.pfx -inkey server.key -in server.crt -certfile rootCA.pem.
+```
+
+Follow the docker specific instructions here: [link](https://docs.microsoft.com/en-us/aspnet/core/security/docker-compose-https?view=aspnetcore-3.1)
